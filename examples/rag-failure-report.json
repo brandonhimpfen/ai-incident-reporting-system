@@ -1,0 +1,25 @@
+{
+  "title": "RAG response used irrelevant retrieved context",
+  "description": "The system retrieved unrelated context and produced an answer that did not match the user query.",
+  "incident_type": "retrieval_failure",
+  "severity": "sev_3",
+  "source": "internal_report",
+  "reported_by_type": "developer",
+  "event": {
+    "event_type": "rag_response",
+    "input_text": "What does the policy say about account deletion?",
+    "output_text": "The response referenced billing rules instead of account deletion rules.",
+    "retrieved_context": [
+      {
+        "document_id": "doc_billing_policy",
+        "score": 0.81,
+        "excerpt": "Billing renewal rules and invoice handling."
+      }
+    ],
+    "metadata": {
+      "retriever": "example-vector-search",
+      "top_k": 5
+    }
+  },
+  "labels": ["retrieval_failure", "irrelevant_context", "evaluation_gap"]
+}

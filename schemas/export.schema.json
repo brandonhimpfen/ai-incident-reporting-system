@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/ai-incident-export.schema.json",
+  "title": "AI Incident Export",
+  "type": "object",
+  "required": ["export_type"],
+  "properties": {
+    "export_type": {
+      "type": "string",
+      "enum": ["csv", "json", "pdf", "audit_package"]
+    },
+    "filters": { "type": "object" },
+    "file_url": { "type": "string" },
+    "generated_by": { "type": "string" }
+  },
+  "additionalProperties": false
+}

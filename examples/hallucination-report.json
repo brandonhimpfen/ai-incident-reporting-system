@@ -1,0 +1,28 @@
+{
+  "title": "Unsupported claim in generated answer",
+  "description": "The assistant provided a confident answer that was not supported by the available context.",
+  "incident_type": "hallucination",
+  "severity": "sev_2",
+  "source": "user_report",
+  "reported_by_type": "user",
+  "model": {
+    "provider": "example-provider",
+    "name": "example-model",
+    "version": "2026-05-02"
+  },
+  "versions": {
+    "system": "1.0.0",
+    "prompt": "2026-05-02",
+    "policy": "1.0.0"
+  },
+  "event": {
+    "event_type": "chat_completion",
+    "input_text": "Summarize the source material and cite the key evidence.",
+    "output_text": "The assistant included a claim that was not present in the source material.",
+    "metadata": {
+      "surface": "web_app",
+      "request_id": "req_example_001"
+    }
+  },
+  "labels": ["hallucination", "unsupported_claim", "incorrect_citation"]
+}

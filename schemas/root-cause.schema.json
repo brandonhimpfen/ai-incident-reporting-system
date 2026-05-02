@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/ai-incident-root-cause.schema.json",
+  "title": "AI Incident Root Cause",
+  "type": "object",
+  "required": ["root_cause_type", "summary"],
+  "properties": {
+    "root_cause_type": {
+      "type": "string",
+      "enum": [
+        "model_behavior",
+        "prompt_design",
+        "missing_guardrail",
+        "retrieval_quality",
+        "tool_permissioning",
+        "bad_input",
+        "user_misuse",
+        "policy_gap",
+        "data_quality",
+        "integration_failure",
+        "evaluation_gap",
+        "other"
+      ]
+    },
+    "summary": { "type": "string" },
+    "details": { "type": "string" }
+  },
+  "additionalProperties": false
+}

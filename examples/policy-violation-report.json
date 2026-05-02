@@ -1,0 +1,18 @@
+{
+  "title": "Policy violation in assistant output",
+  "description": "The assistant produced content that should have been blocked or redirected by the policy layer.",
+  "incident_type": "policy_violation",
+  "severity": "sev_1",
+  "source": "moderation",
+  "reported_by_type": "system",
+  "event": {
+    "event_type": "moderation_event",
+    "input_text": "User request requiring policy handling.",
+    "output_text": "Assistant response that did not follow the expected policy behavior.",
+    "metadata": {
+      "policy_version": "1.0.0",
+      "moderation_signal": "policy_mismatch"
+    }
+  },
+  "labels": ["policy_violation", "unsafe_output", "under_refusal"]
+}

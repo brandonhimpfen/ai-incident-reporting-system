@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/ai-incident.schema.json",
+  "title": "AI Incident",
+  "type": "object",
+  "required": [
+    "title",
+    "incident_type",
+    "severity",
+    "source",
+    "reported_by_type",
+    "event"
+  ],
+  "properties": {
+    "external_id": { "type": "string" },
+    "title": { "type": "string", "minLength": 3 },
+    "description": { "type": "string" },
+    "incident_type": {
+      "type": "string",
+      "enum": [
+        "misuse",
+        "harmful_output",
+        "hallucination",
+        "bias",
+        "privacy",
+        "security",
+        "policy_violation",
+        "system_failure",
+        "retrieval_failure",
+        "tool_failure",
+        "other"
+      ]
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["sev_0", "sev_1", "sev_2", "sev_3", "sev_4"]
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "user_report",
+        "internal_report",
+        "automated_detection",
+        "api",
+        "moderation",
+        "audit"
+      ]
+    },
+    "reported_by_type": {
+      "type": "string",
+      "enum": ["user", "admin", "developer", "system", "external"]
+    },
+    "reported_by_id": { "type": "string" },
+    "model": {
+      "type": "object",
+      "properties": {
+        "provider": { "type": "string" },
+        "name": { "type": "string" },
+        "version": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "versions": {
+      "type": "object",
+      "properties": {
+        "system": { "type": "string" },
+        "prompt": { "type": "string" },
+        "policy": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "event": { "$ref": "event.schema.json" },
+    "labels": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "metadata": { "type": "object" }
+  },
+  "additionalProperties": false
+}

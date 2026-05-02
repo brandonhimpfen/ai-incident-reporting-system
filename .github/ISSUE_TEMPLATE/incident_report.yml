@@ -1,0 +1,62 @@
+name: AI Incident Report
+description: Report an AI misuse, error, unsafe output, retrieval failure, or policy concern.
+title: "[Incident]: "
+labels: ["incident", "needs-triage"]
+body:
+  - type: dropdown
+    id: incident_type
+    attributes:
+      label: Incident type
+      options:
+        - misuse
+        - harmful_output
+        - hallucination
+        - bias
+        - privacy
+        - security
+        - policy_violation
+        - system_failure
+        - retrieval_failure
+        - tool_failure
+        - other
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Estimated severity
+      options:
+        - sev_0
+        - sev_1
+        - sev_2
+        - sev_3
+        - sev_4
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Briefly describe what happened.
+    validations:
+      required: true
+  - type: textarea
+    id: input
+    attributes:
+      label: Input or prompt
+      description: Include the relevant prompt or input when appropriate. Remove sensitive information when possible.
+  - type: textarea
+    id: output
+    attributes:
+      label: Output or behavior
+      description: Include the relevant output or observed behavior when appropriate. Remove sensitive information when possible.
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: Describe user, safety, privacy, security, business, or operational impact.
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Include model, version, request ID, environment, or reproduction details if available.

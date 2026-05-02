@@ -1,0 +1,13 @@
+{
+  "title": "AI response reported for review",
+  "incident_type": "other",
+  "severity": "sev_4",
+  "source": "user_report",
+  "reported_by_type": "user",
+  "event": {
+    "event_type": "chat_completion",
+    "input_text": "User prompt text",
+    "output_text": "Model response text"
+  },
+  "labels": ["review_needed"]
+}

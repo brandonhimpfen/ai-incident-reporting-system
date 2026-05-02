@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/ai-incident-action.schema.json",
+  "title": "AI Incident Action",
+  "type": "object",
+  "required": ["action_type", "description"],
+  "properties": {
+    "action_type": {
+      "type": "string",
+      "enum": [
+        "prompt_update",
+        "policy_update",
+        "guardrail_added",
+        "dataset_added",
+        "eval_added",
+        "model_config_changed",
+        "retrieval_fix",
+        "user_warning_added",
+        "documentation_update",
+        "manual_review_completed",
+        "other"
+      ]
+    },
+    "description": { "type": "string" },
+    "owner": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["open", "in_progress", "completed", "cancelled"]
+    },
+    "due_at": { "type": "string", "format": "date-time" },
+    "completed_at": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}
